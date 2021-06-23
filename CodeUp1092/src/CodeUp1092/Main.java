@@ -10,38 +10,14 @@ public class Main {
 		String s = bf.readLine();
 		String[] sS = s.split(" ");
 		Integer[] a = new Integer[sS.length];
-		Main m = new Main();
+		int day = 1;
 		for (int i = 0; i < a.length; i++) {
 			a[i] = Integer.parseInt(sS[i]);
 		}
-		m.solution(a);
-	}
-	
-	public void solution(Integer[] arr) {
-		Arrays.sort(arr, Collections.reverseOrder());
-		Integer gcf = 0;
-		Integer lcm = 0;
-		//gcf
-		gcf = getGCF(getGCF(arr[0],arr[1]),arr[2]);
-		System.out.println(gcf);
-		lcm = (arr[0]*arr[1]*arr[2]) / gcf;
 		
-		//최소공배수(LCM) 출력
-		System.out.println(lcm);
-	}
-	public Integer getGCF(Integer a, Integer b) {
-		//swap으로 위치정리
-		if(a < b) {
-			Integer tmp = 0;
-			tmp = a;
-			a = b;
-			b = tmp;
+		while (day % a[0] != 0 || day % a[1] != 0 || day % a[2] != 0) {
+			day++;
 		}
-		while (b != 0) {
-			Integer n = a % b;
-			a = b;
-			b = n;
-		}
-		return a;
+		System.out.println(day);
 	}
 }
